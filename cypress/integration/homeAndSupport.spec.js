@@ -11,6 +11,16 @@ const macSupport = ':nth-child(2) > a > .as-imagegrid-item-title'
 const ipadSupport = ':nth-child(3) > a > .as-imagegrid-item-title'
 const workoutLocator = ':nth-child(2) > .contentLink-item > .contentLink-block > .contentLink-title'
 
+// messages
+const learnMoreMessage = 'Learn more'
+const buyMessage = 'Buy'
+const shopMessage = 'Shop'
+const iphoneMessage = 'iPhone'
+const macMessage = 'Mac'
+const ipadMessage = 'iPad'
+const servicesMessage = 'Services'
+const workoutMessage = 'Work out with your Apple'
+
 describe('testing the home page and the support page', () => {
   beforeEach(() => {
     cy.visit('https://www.apple.com')
@@ -20,17 +30,17 @@ describe('testing the home page and the support page', () => {
     // test "Learn More" button's text of iPhone 13
     cy
       .get(learnMoreLocator)
-      .should('have.text', 'Learn more')
+      .should('have.text', learnMoreMessage)
 
     // test "Buy" button's text of iPhone 13
     cy
       .get(buyLocator)
-      .should('have.text', 'Buy')
+      .should('have.text', buyMessage)
 
     // test "Shop and Learn" subsection at the bottom of the home
     cy
       .get(shopAndLearnLocator)
-      .should('include.text', 'Shop')
+      .should('include.text', shopMessage)
   })
 
   it('should test the support page', () => {
@@ -40,29 +50,29 @@ describe('testing the home page and the support page', () => {
     // test iphone support button
     cy
       .get(iphoneSupport)
-      .should('include.text', 'iPhone')
+      .should('include.text', iphoneMessage)
 
     // test mac support button
     cy
       .get(macSupport)
-      .should('include.text', 'Mac')
+      .should('include.text', macMessage)
 
     // test ipad support button
     cy
       .get(ipadSupport)
-      .should('include.text', 'iPad')
+      .should('include.text', ipadMessage)
   })
 
   // scenario from homework 3.2 where I test some elements from the home page, then the support page
   it('should test home and support page', () => {
     cy
       .get(servicesLocator)
-      .should('have.text', 'Services')
+      .should('have.text', servicesMessage)
 
     cy.get(supportButton).click()
 
     cy
       .get(workoutLocator)
-      .should('include.text', 'Work out with your Apple')
+      .should('include.text', workoutMessage)
   })
 })
